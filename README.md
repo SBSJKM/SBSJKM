@@ -56,14 +56,6 @@
 
 <br clear="right"/>
 
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake.svg" />
-    <img alt="Contribution Snake" src="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake.svg" />
-  </picture>
-</div>
-
 ## 🤝 交流
 
 对**机器人操作数据**、**VLA 微调**、**人机共享控制**感兴趣，或者想一起复现某篇工作？欢迎开 Issue 或直接邮件我。

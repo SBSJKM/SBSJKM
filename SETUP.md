@@ -1,7 +1,7 @@
 # 把这份主页发布到 GitHub
 
 > 目标：10 分钟内得到一个「有设计感、能自证实力」的 GitHub 主页。
-> 文件结构：`README.md`（主页正文）+ `assets/`（横幅 SVG、横幅预览图、社交预览图）+ `.github/workflows/snake.yml`（可选的贡献蛇）。
+> 文件结构：`README.md`（主页正文）+ `assets/`（横幅 SVG、横幅预览图、社交预览图）。
 
 ---
 
@@ -66,7 +66,7 @@ git pull --rebase origin main
 | 姓名 | `fml`（没有使用真实姓名） |
 | 学校 | 上海交通大学（SJTU） |
 | 邮箱 | `sbsjkm13@sjtu.edu.cn`（页首徽章 + 关于我） |
-| 用户名 | `SBSJKM`（徽章、贡献蛇、社交预览图里都是它） |
+| 用户名 | `SBSJKM`（徽章、社交预览图里都是它） |
 | 项目 | 只放了 `hil-vla-shared-control` |
 
 还需要你确认两件事：
@@ -80,7 +80,7 @@ git pull --rebase origin main
 
 ## 3. 验收
 
-- [ ] 打开 `github.com/SBSJKM`，横幅、徽章、贡献蛇都能显示
+- [ ] 打开 `github.com/SBSJKM`，横幅和徽章都能显示
 - [ ] 切一次 **深色 / 浅色主题**，横幅和文字都正常
 - [ ] 手机上看一遍（GitHub App 或手机浏览器），表格/图片没有溢出
 - [ ] 所有链接点一遍，没有 404
@@ -90,17 +90,58 @@ git pull --rebase origin main
 
 ## 4. 可选增强
 
-### ① 贡献蛇（已开启）
+### ① 贡献蛇（已关闭）
 
-`.github/workflows/snake.yml` 已经在跑，`output` 分支里有深浅两版 SVG，README 用 `<picture>` 按主题自动切换。
+主页目前没有贡献蛇，`.github/workflows/snake.yml` 和 `output` 分支都删掉了。想重新打开，三步：
 
-以后想改频率，编辑 `snake.yml` 里的 cron（默认每 12 小时）；想手动刷新就 Actions → Generate Snake → Run workflow。想关掉，把 README 里那段 `<picture>` 删掉即可。
+1. 在仓库新建 `.github/workflows/snake.yml`：
 
-> 免费额度：公开仓库的 Actions 不消耗配额。
+```yaml
+name: Generate Snake
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+2. Actions → Generate Snake → Run workflow，跑完会生成 `output` 分支。
+3. 在 README 的「交流」前面加上：
+
+```html
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake.svg" />
+    <img alt="Contribution Snake" src="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake.svg" />
+  </picture>
+</div>
+```
+
+> `raw.githubusercontent.com` 在大陆可能被墙，图会裂；要稳妥就把 SVG 也提交到 `main` 的 `assets/`，改用相对路径。
 
 ### ② 贡献活动图
 
-在贡献蛇下面加一行（可选）：
+在 README 的「交流」前面加一行（可选）：
 
 ```html
 <div align="center">
@@ -119,7 +160,7 @@ git pull --rebase origin main
 
 ### ⑤ 以后想加回统计卡片？
 
-主页目前没有放 `github-readme-stats`（大陆访问经常超时，删掉了）。想加回来时，把这段贴到贡献蛇下面：
+主页目前没有放 `github-readme-stats`（大陆访问经常超时，删掉了）。想加回来时，把这段贴到「交流」前面：
 
 ```html
 <div align="center">
@@ -196,7 +237,6 @@ git pull --rebase origin main
 | 主页不显示 README | 仓库名 ≠ 用户名，或仓库是 Private，或文件名不是 `README.md` |
 | 图片裂开 | 路径大小写不一致（GitHub 服务器区分大小写）；或文件没一起上传 |
 | 徽章显示 `invalid` | shields 参数里的中文/空格没做 URL 编码，改用英文或 `%20` |
-| 贡献蛇不显示 | `raw.githubusercontent.com` 被网络拦截；把蛇图改存到 `main` 的 `assets/` 用相对路径 |
 | 修改后主页没变 | 浏览器缓存，`Ctrl + F5`；或改动没 push 成功 |
 | Actions 跑失败 | 仓库 Settings → Actions → General 里允许 workflow 写入（Read and write permissions） |
 
