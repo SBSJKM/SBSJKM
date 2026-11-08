@@ -90,14 +90,13 @@ git pull --rebase origin main
 
 ## 4. 可选增强
 
-### ① 贡献蛇（.github/workflows/snake.yml 已备好）
+### ① 贡献蛇（已开启）
 
-1. 把 `.github/workflows/snake.yml` 一起提交上去（方式 A 拖 `.github` 文件夹，方式 B 已经包含）。
-2. 打开仓库的 **Actions** 标签页 → 左侧 `Generate Snake` → **Run workflow**。
-3. 跑完后仓库会多出一个 `output` 分支，里面有 `github-contribution-grid-snake-dark.svg`。
-4. 回到 `README.md`，把「🐍 贡献蛇」那段 HTML 注释去掉即可。
+`.github/workflows/snake.yml` 已经在跑，`output` 分支里有深浅两版 SVG，README 用 `<picture>` 按主题自动切换。
 
-> 免费额度：公开仓库的 Actions 不消耗配额，每 12 小时自动刷新一次。
+以后想改频率，编辑 `snake.yml` 里的 cron（默认每 12 小时）；想手动刷新就 Actions → Generate Snake → Run workflow。想关掉，把 README 里那段 `<picture>` 删掉即可。
+
+> 免费额度：公开仓库的 Actions 不消耗配额。
 
 ### ② 贡献活动图
 

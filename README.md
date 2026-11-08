@@ -67,11 +67,13 @@
   <img height="165" src="https://streak-stats.demolab.com?user=SBSJKM&theme=tokyonight&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
 </div>
 
-<!-- 🐍 贡献蛇：按 SETUP.md「可选增强 1」开启后，取消下面的注释
 <div align="center">
-  <img src="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake-dark.svg" alt="Contribution Snake" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake.svg" />
+    <img alt="Contribution Snake" src="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake.svg" />
+  </picture>
 </div>
--->
 
 ## 🤝 交流
 
