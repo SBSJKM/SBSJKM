@@ -56,17 +56,6 @@
 
 <br clear="right"/>
 
-## 📊 GitHub 数据
-
-<div align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=SBSJKM&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true&locale=cn&rank_icon=github" alt="GitHub Stats" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SBSJKM&layout=compact&theme=tokyonight&hide_border=true&locale=cn&langs_count=8&hide=html,css" alt="Top Languages" />
-</div>
-
-<div align="center">
-  <img height="165" src="https://streak-stats.demolab.com?user=SBSJKM&theme=tokyonight&hide_border=true&locale=zh_Hans" alt="GitHub Streak" />
-</div>
-
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SBSJKM/SBSJKM/output/github-contribution-grid-snake-dark.svg" />

@@ -66,7 +66,7 @@ git pull --rebase origin main
 | 姓名 | `fml`（没有使用真实姓名） |
 | 学校 | 上海交通大学（SJTU） |
 | 邮箱 | `sbsjkm13@sjtu.edu.cn`（页首徽章 + 关于我） |
-| 用户名 | `SBSJKM`（统计卡片、徽章、贡献蛇里都是它） |
+| 用户名 | `SBSJKM`（徽章、贡献蛇、社交预览图里都是它） |
 | 项目 | 只放了 `hil-vla-shared-control` |
 
 还需要你确认两件事：
@@ -80,7 +80,7 @@ git pull --rebase origin main
 
 ## 3. 验收
 
-- [ ] 打开 `github.com/SBSJKM`，横幅、徽章、统计卡片都能显示
+- [ ] 打开 `github.com/SBSJKM`，横幅、徽章、贡献蛇都能显示
 - [ ] 切一次 **深色 / 浅色主题**，横幅和文字都正常
 - [ ] 手机上看一遍（GitHub App 或手机浏览器），表格/图片没有溢出
 - [ ] 所有链接点一遍，没有 404
@@ -100,7 +100,7 @@ git pull --rebase origin main
 
 ### ② 贡献活动图
 
-在「GitHub 数据」下面加一行：
+在贡献蛇下面加一行（可选）：
 
 ```html
 <div align="center">
@@ -117,12 +117,18 @@ git pull --rebase origin main
 
 用 [blog-post-workflow](https://github.com/gautamkrishnar/blog-post-workflow)，把 RSS 地址填进去，主页就会自动列出最新文章。
 
-### ⑤ 统计卡片加载慢？
+### ⑤ 以后想加回统计卡片？
 
-`github-readme-stats.vercel.app` 在中国大陆经常超时。两个办法：
+主页目前没有放 `github-readme-stats`（大陆访问经常超时，删掉了）。想加回来时，把这段贴到贡献蛇下面：
 
-1. Fork [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)，在 Vercel 一键部署，然后把 README 里的域名换成你自己的。
-2. 或者干脆删掉统计卡片——主页的可信度主要来自项目，不来自绿色方块。
+```html
+<div align="center">
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=SBSJKM&show_icons=true&theme=tokyonight&hide_border=true&locale=cn" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SBSJKM&layout=compact&theme=tokyonight&hide_border=true&locale=cn&langs_count=8" />
+</div>
+```
+
+嫌慢就 Fork [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats) 到 Vercel 自建，再换掉域名。
 
 > 另外：公共实例**读不到私有仓库的贡献**，`count_private=true` 只有在自建并配置 token 时才生效。
 
@@ -190,7 +196,7 @@ git pull --rebase origin main
 | 主页不显示 README | 仓库名 ≠ 用户名，或仓库是 Private，或文件名不是 `README.md` |
 | 图片裂开 | 路径大小写不一致（GitHub 服务器区分大小写）；或文件没一起上传 |
 | 徽章显示 `invalid` | shields 参数里的中文/空格没做 URL 编码，改用英文或 `%20` |
-| 统计卡片空白 | 公共服务被墙 / 首次访问慢，等几秒刷新，或按 4.⑤ 自建 |
+| 贡献蛇不显示 | `raw.githubusercontent.com` 被网络拦截；把蛇图改存到 `main` 的 `assets/` 用相对路径 |
 | 修改后主页没变 | 浏览器缓存，`Ctrl + F5`；或改动没 push 成功 |
 | Actions 跑失败 | 仓库 Settings → Actions → General 里允许 workflow 写入（Read and write permissions） |
 
