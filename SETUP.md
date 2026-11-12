@@ -59,22 +59,18 @@ git pull --rebase origin main
 
 ## 2. 发布前检查
 
-下面的信息已经按你的要求填好，不用再改：
+主页只保留最基本的信息，不需要再改：
 
 | 位置 | 内容 |
 | --- | --- |
 | 姓名 | `fml`（没有使用真实姓名） |
 | 学校 | 上海交通大学（SJTU） |
-| 邮箱 | `sbsjkm13@sjtu.edu.cn`（页首徽章 + 关于我） |
+| 邮箱 | `sbsjkm13@sjtu.edu.cn`（页首徽章 + 正文） |
 | 用户名 | `SBSJKM`（徽章、社交预览图里都是它） |
-| 项目 | 只放了 `hil-vla-shared-control` |
 
-还需要你确认两件事：
+如果 GitHub 用户名不是 `SBSJKM`，全局替换即可（README 里约 4 处）。
 
-- 如果 GitHub 用户名不是 `SBSJKM`，请全局替换（README 里约 8 处）。
-- 想再加项目，复制「精选项目」那一节的格式即可；`opengraph.githubassets.com/1/用户名/仓库名` 的路径也要一起改。
-
-> **小提醒**：主页是给「不认识你的人」看的。项目描述里带上**量化结果**（31% → 100%、↓92.8%）比堆十个形容词有用得多。
+> 想再加项目、技术栈这类内容时，旧版本都在 git 历史里：`git show 9f3d7fc:README.md`。
 
 ---
 
@@ -84,7 +80,6 @@ git pull --rebase origin main
 - [ ] 切一次 **深色 / 浅色主题**，横幅和文字都正常
 - [ ] 手机上看一遍（GitHub App 或手机浏览器），表格/图片没有溢出
 - [ ] 所有链接点一遍，没有 404
-- [ ] 「精选项目」里的仓库确实是公开的
 
 ---
 
@@ -125,7 +120,7 @@ jobs:
 ```
 
 2. Actions → Generate Snake → Run workflow，跑完会生成 `output` 分支。
-3. 在 README 的「交流」前面加上：
+3. 在 README 末尾加上：
 
 ```html
 <div align="center">
@@ -141,7 +136,7 @@ jobs:
 
 ### ② 贡献活动图
 
-在 README 的「交流」前面加一行（可选）：
+在 README 末尾加一行（可选）：
 
 ```html
 <div align="center">
@@ -160,7 +155,7 @@ jobs:
 
 ### ⑤ 以后想加回统计卡片？
 
-主页目前没有放 `github-readme-stats`（大陆访问经常超时，删掉了）。想加回来时，把这段贴到「交流」前面：
+主页目前没有放 `github-readme-stats`（大陆访问经常超时，删掉了）。想加回来时，把这段贴到 README 末尾：
 
 ```html
 <div align="center">
@@ -247,7 +242,7 @@ jobs:
 主页只是门面，别人点进来看到的是**仓库**：
 
 - **About**：填一句话 description + 官网链接 + topics，例如
-  `robot-learning`、`vision-language-action`、`imitation-learning`、`isaac-lab`、`teleoperation`
+  `python`、`course-project`、`notes`
 - **Social preview**：Settings → Social preview，上传 `assets/social-preview.png`（1280×640，已为你生成）
 - **LICENSE**：MIT 最省事；论文类代码可以用 Apache-2.0
 - **README 模板**：一句话是什么 → 效果图/GIF → 快速开始 → 结果表格 → 引用
